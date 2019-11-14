@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class SelectionSort {
+public class SelectionSort0 {
     public static void main(String[] args) {
         int[] unsorted = {4,9,7,1,3,6,5,14,42,835,2};
         int[] sorted = selectionSort(unsorted);
@@ -29,15 +29,15 @@ public class SelectionSort {
                 }
             }
 
-            System.out.println("\tReplacing unsorted["+ lowestValueIndex +"] = "+lowestValue+" with previous lowest value unsorted["+sortIndex+"] = "+unsorted[sortIndex]);
+            System.out.println("\tReplacing unsorted["+ lowestValueIndex +"] = "+lowestValue+" with previous lowest value unsorted["+sortToIndex+"] = "+unsorted[sortToIndex]);
 
             // Once the whole array has been traversed, swap sortIndex value with the lowest found value
-            int tmpValue = unsorted[sortIndex];
-            unsorted[sortIndex] = lowestValue;
+            int tmpValue = unsorted[sortToIndex];
+            unsorted[sortToIndex] = lowestValue;
             unsorted[lowestValueIndex] = tmpValue;
 
             // repeat at sortIndex+1 until the entire array is sorted
-            sortIndex++;
+            sortToIndex++;
         }
         return unsorted;
     }
