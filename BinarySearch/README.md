@@ -1,0 +1,6 @@
+# Binary Search
+
+Binary Seach takes a sorted (important) array of values and a value to search for. If the searched-for value is in the array true is returned, otherwise false is returned.
+
+### JavaScript Implementation
+#### If the length of the array is one then that element is compared with the searched-for value, returning true if they are a match and false otherwise. If the length of the array is greater than one then the middle-element of the array is compared with the searched-for value again returning true if a match. If the middle-element of the array is greater than the searched-for element, the array is split in half and the elements lower than the middle-element are passed recursively to binarySearch along with the searched-for value; repeating the above steps until the searched-for element is matched (returns true) or not-found (returns false). If the middle-element of the array is less than the searched-for element, the array is split in half and the elements higher than the middle-element are passed recursively to binarySearch along with the searched-for value; again repeating this process until the searched-for element is matched (returns true) or not-found (return false).
