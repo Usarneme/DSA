@@ -1,0 +1,7 @@
+# The least common multiple of two positive integers 𝑎 and 𝑏 is the least positive integer 𝑚 that is divisible by both 𝑎 and 𝑏.
+
+### Two implementations: a naive/brute force approach and one where an array is initialized with possible values first.
+
+The first implementation codifies the standard least common multiple formula. It uses some minor optimizations such as setting the maximum value to look for as the product of the two inputs a and b. Otherwise it uses a loop from the minimum to maximum and does a comparison to see if the index value is evenly divisible by both a and b. If that is true and the current index value is also less than the previous least common multiple then it updates the lcm to that value before incrementing the index by one and checking the next value. This starts to get slow at comparing 5-digit numbers and on my laptop takes an unreasonable amount of time starting around half a million as input. 
+
+The second implementation optimizes the number of lookups by first creating an array of all possible products of one of the inputs up until the max (input a * input b). It then loops through each of the values in this array and compares if they are also evenly divisible by the other input; if so it updates the lcm variable if it is smaller than the previously-found match. This implementation can calculate an 8-digit number in a couple of seconds and calculates a 5-digit number almost instantaneously.
