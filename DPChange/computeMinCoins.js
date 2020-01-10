@@ -5,7 +5,8 @@ const genMinCoinsNeededForChangeArray = (money, denominationsArr) => {
     minNumCoins[0] = 0
 
     for (let i = 1; i <= money; i += 1) {
-        minNumCoins[i] = money // max would be money * 1 penny, setting a max for comparison to better coin combo solutions
+        // setting a max for comparison to other possible coin combinations
+        minNumCoins[i] = Infinity
 
         denominationsArr.forEach(coin => {
             if (i >= coin) { 
@@ -13,8 +14,10 @@ const genMinCoinsNeededForChangeArray = (money, denominationsArr) => {
                 if (numCoins < minNumCoins[i]) {
                     minNumCoins[i] = numCoins
                 } 
-            }
+            } 
         })
+        // if no pennies (1c) are in denominations, some money values will not divide evenly thus not having an answer
+        if (minNumCoins[i] === Infinity) minNumCoins[i] = undefined 
     }
     return minNumCoins
 }
@@ -29,3 +32,10 @@ console.log(`Number of coins needed for 23 cents:  ${val1[23]}`)
 console.log(`Number of coins needed for 8 cents:   ${val1[8]}`)
 console.log(`Number of coins needed for 62 cents:  ${val1[62]}`)
 console.log(`Number of coins needed for 100 cents: ${val1[100]}`)
+
+const val2 = genMinCoinsNeededForChangeArray(32, [1,8,20])
+console.log(val2[32])
+
+const val3 = genMinCoinsNeededForChangeArray(997, [2,4,8])
+console.log(val3.slice(990, val3.length))
+console.log(val3[997])
