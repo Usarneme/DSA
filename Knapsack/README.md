@@ -1,0 +1,9 @@
+# Knapsack Problem, or Maximizing Loot
+
+## The knapsack problem attempts to find a way to get the most amount of valuable items in a knapsack with limited capacity. 
+
+### For example, a thief enters a business with items of various weights and values and a limited capacity for what they can take. Their knapsack has a weight limit so they want to take the items with the most value per unit of weight available until they run out of room in their bag or run out of items to take. Two implementations were done: knapsackFast.js assumes the items are sorted in decreasing value from most valuable per unit to least valuable per unit, knapsack.js does not.
+
+Knapsack.js takes as inputs a total weight W (that is the carrying capacity of the thief's bag in the example above) as well as an unsorted array of size n of pairs of weights and values for each of the items. Since the array is unsorted Knapsack.js uses a helper function bestItem() which takes in the unsorted array of item values and weights and returns the index of the most valuable per unit element among the remaining items (i.e.: if weight is 0 that element is already taken and thus will be skipped). Once knapsack has the returned index of the best item per unit weight it takes as much of that item that is either available or that will fit in the pack's remaining capacity. This is repeated for each item until all items are exhausted or the bag is full at which point it returns the totalValue of all items taken as well as the indices of which items were taken in which order. 
+
+KnapsackFast.js assumes a sorted input array of pairs of weights and values. Since the value per unit weight goes from highest to lowest we can skip searching for the most valuable item and go ahead and take as much as will fit in the knapsack of each item in series until we run out of items or the bag is full. 
